@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<head>
+<title>T</title>
+</head>
+<body  style="border:3px solid red; background-color:#00FFFF">
+<center><h1>Temperature Converter</h1></center></br>
+ <form name="calculator" onsubmit="myfun();return false;">
+<center>
+<h3>ENTER THE TEMPERATURE:</h3>
+<input type="text" name="temp" id="temp">
+<h3>TYPE:</h3>
+<select id="select_temp" name="select_temp" id="select_temp">
+<option value="FAHRENHEAT" name="FAHRENHEAT">FAHRENHEAT</option>
+<option value="CELCIUS"  name="CELCIUS">CELCIUS</option>
+</center>
+</select>
+<div id="row">
+<label><h3>RESULT:</h3></label><br>
+<div id="resultcontainer">
+<span id="myresult"></span>
+</div></div>
+<br/><br/>
+ <input type="submit" id="btn1" value="Convert" style="background-color:#FFFF00"/>
+ <br/><br/>
+</center>
+ </form>
+<script>
+let result;
+        const myfun = () => {
+            let temp = document.getElementById('temp').value;
+            console.log(temp);
+            let selector = document.getElementById('select_temp');
+            let n = selector.options.selectedIndex;
+            let t = selector.options[n].value;
+            if (t == 'CELCIUS') {
+                result = ((temp * 1.8) + 32);
+                document.getElementById('myresult').innerHTML = `  ${result.toFixed(3)}  Fahrenheit`
+            }
+            else {
+                result = ((temp - 32) / 1.8);
+                document.getElementById('myresult').innerHTML = `   ${result.toFixed(3)} Celcius`
+            }
+        }
+</script>
+</body>
+</html>
